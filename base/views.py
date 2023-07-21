@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models import Location, Continent, Country, BucketList, ImageModel, VideoModel
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm, LocationForm
 import random
 
 def home(request):
-    continents = Continent.objects.all()
+    #continents = Continent.objects.all()
+    continents = Continent.objects.annotate(num_locations=Count('country__location')).all()
     context = {'continents': continents}
     return render(request, 'base/home.html', context)
 

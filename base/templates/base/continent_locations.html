@@ -11,7 +11,7 @@
             <button id="continent_locations" style="background-image: url({{location.location_display_image.url}});"></button> 
             <br>
             <span>
-                {{location.name}} <a href ={%url 'country-locations' location.country.id%}> <small>{{location.country}}</small></a>
+                {{location.name}} <a href ={%url 'country-locations' location.country.id%}><img src={% static 'images/location.png'%} width='12' height='16'  > <small>   {{location.country}}</small></a>
             </span>
             
             <div class='info'>
