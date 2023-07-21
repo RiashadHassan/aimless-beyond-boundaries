@@ -1,0 +1,61 @@
+.continent_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.location_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#home_continents {
+    background-color: aqua;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+    margin: 30px;
+    
+    border: 0px;
+    border-radius: 15px;
+    align-items: center;
+    border-color: brown;
+}
+
+#continent_locations {
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    border: 0px;
+    border-radius: 15px;
+    justify-content: flex-end;
+    align-items: center;
+    border-color: brown;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.filter-button{
+    background-color: aqua;
+    
+    align-items: center;
+    margin-top: 20px;
+}
+.info{
+    margin-top: 10px;
+    color:	#5A5A5A;
+}

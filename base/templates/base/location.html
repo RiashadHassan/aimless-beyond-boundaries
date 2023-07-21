@@ -1,0 +1,52 @@
+
+{% extends 'main.html' %}
+
+{%block content%}
+{%load static%}
+<link rel="stylesheet" type="text/css" href={%static 'css/images.css' %}>
+
+</p>
+<div>
+    {{location.name}}</p>
+    
+</div>
+<form method='POST' action=''>
+    {% csrf_token %}
+    <input type= 'submit' value="add to bucket list">
+</form>
+
+<br>
+
+
+
+<div class='display_image'>
+    {%if location.location_display_image %} 
+        <img src= '{{location.location_display_image.url}}'  width="350" height="250"><hr>
+    {%endif%}
+</div>
+
+<div class='location_images'>
+    <div class="image-container">
+      {% for image in location_images %}
+        <a href="{{ image.image.url }}">
+          <img src="{{ image.image.url }}" alt="Location Image" class="location-image">
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  
+<hr>
+
+{% for video in location_videos %}
+{{video.video.url}} <br>
+<video width="320" height="240" controls>
+    <source src={{video.video.url}} type="video/mp4">
+    
+    Your browser does not support the video tag.
+  </video>
+{% endfor %}
+
+
+
+{%endblock%}
+<button style="background-image: url({{image.image.url}});"></button>

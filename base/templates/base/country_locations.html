@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href={% static 'css/home.css'%}>
+<center><strong> {{country_locations_count}}  LOCATIONS FOUND IN     {{country.name}}</strong></center>
+<div class="location_button">
+   
+    {% for location in country_locations %}
+    <div>
+        <a href="{% url 'location' location.id %}">
+            <button id="continent_locations" style="background-image: url({{location.location_display_image.url}});"></button> <br><span>{{location.name}}</span>
+        </a>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

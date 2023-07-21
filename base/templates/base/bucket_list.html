@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{%block content%}
+
+<h3>User: {{user.username}}</h3>
+
+{% for item in bucket_list%}
+   <p><button><a href={%url 'location' item.list_item.id %}>{{item.list_item}}</a></button> </p>
+   <small>{{item.added_date}} </small>
+   <strong><a href=''>Remove from bucket list</a></strong>
+{%endfor%}
+
+
+{% endblock %}

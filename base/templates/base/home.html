@@ -1,0 +1,56 @@
+{% extends 'main.html' %} 
+
+{% block content %}
+{%load static%}
+<link rel="stylesheet" type="text/css" href={% static 'css/home.css'%}>
+
+<div class=" continent_buttons">
+    {% for continent in continents %}
+    <div>
+        <a href="{% url 'continent-locations' continent.id %}">
+            {% if continent.name == 'ASIA' %}
+                <button id="home_continents" style="background-image: url('/static/images/button/asia.jpg');"></button> <br><span>{{continent.name}}</span>
+            {% elif continent.name == 'EUROPE' %}
+                <button id="home_continents" style="background-image: url('/static/images/button/europe.jpg');"></button> <br><span>{{continent.name}}</span>
+            {% elif continent.name == 'AFRICA' %}
+                <button id="home_continents" style="background-image: url('/static/images/button/africa.jpg');"></button> <br><span>{{continent.name}}</span>
+            {% elif continent.name == 'AUSTRALIA' %}
+                <button id="home_continents" style="background-image: url('/static/images/button/australia.jpg');"></button> <br><span>{{continent.name}}</span>
+            {% elif continent.name == 'NORTH AMERICA' %}
+                <button id="home_continents" style="background-image: url('/static/images/button/north_america.jpg');"></button> <br><span>{{continent.name}}</span>
+            {% elif continent.name == 'SOUTH AMERICA' %}
+                <button id="home_continents" style="background-image: url('/static/images/button/south_america.jpg');"></button> <br><span>{{continent.name}}</span>
+            {% elif continent.name == 'ANTARCTICA' %}
+                <button id="home_continents" style="background-image: url('/static/images/button/antarctica.jpg');"></button> <br><span>{{continent.name}}</span>
+            {% else %}
+                <button><span>{{continent.name}}</span></button>
+            {% endif %}
+        </a>
+    </div>
+    {% endfor %}
+</div>
+    
+<div>
+
+</div>
+
+<div class='filter-button container-fluid'>
+    <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+        Filter
+      </button>
+      
+      <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            FILTER PLEASE
+          </div>
+        </div>
+      </div>
+</div>
+    
+    
+{% endblock content %}

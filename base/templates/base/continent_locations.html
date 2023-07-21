@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href={% static 'css/home.css'%}>
+
+<div class="location_button">
+    {% for location in locations %}
+    <div>
+        <a href="{% url 'location' location.id %}">
+            <button id="continent_locations" style="background-image: url({{location.location_display_image.url}});"></button> 
+            <br>
+            <span>
+                {{location.name}} <a href ={%url 'country-locations' location.country.id%}> <small>{{location.country}}</small></a>
+            </span>
+            
+            <div class='info'>
+                <small> Starts From</small> <strong>BDT {{location.price}}</strong><small> /person</small>
+            </div> 
+        
+        </a>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
