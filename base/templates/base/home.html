@@ -3,16 +3,48 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}">
 
 <script type="text/javascript" src="{% static 'js/code.jquery.com_jquery-3.7.0.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
- <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
- <script type="text/javascript" src="{% static 'js/my.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/my.js' %}"></script>
+
+ <div class="diy_container">
+    <h1 id="best-deals"> Best Deals </h1>
+   <center> <div class="d-flex cheapest-location-slider " >
+        {% for location in locations %}
+        <div>
+            <a href="{% url 'location' location.id %}">
+                <button id="cheapest-locations" style="background-image: url({{location.location_display_image.url}});"></button> 
+                <br>
+                <span>
+                    {{location.name}} <a href ={%url 'country-locations' location.country.id%}><img src={% static 'images/location.png'%} width='12' height='16'  > <small>   {{location.country}}</small></a>
+                </span>
+                
+                <div class='info'>
+                    <small> Starts From</small> <strong>BDT {{location.price}}</strong><small> /person</small>
+                </div> 
+            
+            </a>
+    
+        </div>
+        {% endfor %}
+    </center>
+</div>
+
+<div>
+<center> <img id='home-image' src="{% static 'images/home1.jpg'%}" ></center>
+</div>
+<br>
+
+<center><h1>Around the World!</h1></center>
 
 <div class="continent_buttons">
+    
     {% for continent in continents %}
     <div>
         <a href="{% url 'continent-locations' continent.id %}">
@@ -41,29 +73,21 @@
     {% endfor %}
 </div>
 
+<div class="w3-container w3-padding-32" id="contact">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+    <p>Lets get in touch and talk about your next project.</p>
+    <form action="/action_page.php" target="_blank">
+      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
+      <button class="w3-button w3-black w3-section" type="submit">
+        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+      </button>
+    </form>
+  </div>
 
 
-<div class="container">
-    <div class="d-flex cheapest-location-slider">
-        {% for location in locations %}
-        <div>
-            <a href="{% url 'location' location.id %}">
-                <button id="cheapest-locations" style="background-image: url({{location.location_display_image.url}});"></button> 
-                <br>
-                <span>
-                    {{location.name}} <a href ={%url 'country-locations' location.country.id%}><img src={% static 'images/location.png'%} width='12' height='16'  > <small>   {{location.country}}</small></a>
-                </span>
-                
-                <div class='info'>
-                    <small> Starts From</small> <strong>BDT {{location.price}}</strong><small> /person</small>
-                </div> 
-            
-            </a>
-    
-        </div>
-        {% endfor %}
-   
-</div>
 
 {% endblock %}
 

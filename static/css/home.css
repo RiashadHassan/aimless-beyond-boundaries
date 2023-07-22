@@ -4,19 +4,24 @@
     background-position: center;
     width: 265px;
     height: 320px;
-    margin: 20px;
-    padding: 20px;
+    margin: 0px;
+    
     border: 0px;
-    border-radius: 15px;    
+    border-radius: 10px; 
+}
+.diy_container{
+    margin-left: 30px;
+    margin-right: 30px;
 }
 #best-deals{
-    margin-left: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+    
 }
 
 #home-image{
-    
-    max-width:1500px; 
-    max-height:800px;
+    object-fit: contain;
+   max-width: 1500px;
     
 }
 

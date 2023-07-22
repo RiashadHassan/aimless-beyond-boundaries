@@ -1,13 +1,13 @@
 $(document).ready(function(){
   $('.cheapest-location-slider').slick({
     dots: true,
-    arrows: false,
-    infinite: true,
+    arrows: true,
+    infinite: false,
     slidesToShow: 4,
     slidesToScroll: 1,
     
-  autoplay: true,
-  autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 1000,
     responsive: [
       {
         breakpoint: 768,
