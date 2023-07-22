@@ -4,7 +4,7 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href={% static 'css/home.css'%}>
 
-<div class="location_button">
+<div class="container location_button">
     {% for location in locations %}
     <div>
         <a href="{% url 'location' location.id %}">
