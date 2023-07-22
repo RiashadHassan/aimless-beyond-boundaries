@@ -10,7 +10,9 @@ import random
 def home(request):
     #continents = Continent.objects.all()
     continents = Continent.objects.annotate(num_locations=Count('country__location')).all()
-    context = {'continents': continents}
+    locations=Location.objects.all().order_by('price')[:5]
+    
+    context = {'continents': continents,'locations':locations}
     return render(request, 'base/home.html', context)
 
 def search(request):

@@ -41,6 +41,19 @@
     align-items: center;
     border-color: brown;
 }
+#cheapest-locations{
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 265px;
+    height: 320px;
+    margin: 50px;
+    border: 0px;
+    border-radius: 15px;
+    justify-content: flex-end;
+    align-items: center;
+    border-color: brown;
+}
 
 span {
     display: flex;
