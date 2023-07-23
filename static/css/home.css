@@ -61,11 +61,20 @@
     
 }
 
-#home-image{
-   object-fit: cover;
-   max-width: 1500px;
-   
-    
+.home-page-image{
+    margin: 20px;
+    height: 80vh;
+
+}
+#home-page-image-1 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/home-image.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
 }
 
 .continent_buttons {
