@@ -13,20 +13,29 @@
 <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/my.js' %}"></script>
 
+<div class='hero'>
+    <div class='hero-image'>
+        <div class="hero-text">
+            <h5 style="font-family: 'Cornerstone','Oswald';">Your Next Destination</h5>
+        </div>
+    </div>        
+</div>    
+
+
  <div class="diy_container">
     <h1 id="best-deals"> Best Deals </h1>
    <center> <div class="d-flex cheapest-location-slider " >
         {% for location in locations %}
         <div>
             <a href="{% url 'location' location.id %}">
-                <button id="cheapest_locations" style="background-image: url({{location.location_display_image.url}});"></button> 
+                <button id="cheapest-locations" style="background-image: url({{location.location_display_image.url}});"></button> 
                 <br>
-                
+                <span>
                     {{location.name}} <a href="{% url 'country-locations' location.country.id %}">
                         <img src="{% static 'images/location.png' %}" width="12" height="16">
                         <small>{{location.country}}</small>
                     </a>
-                
+                </span>
                 
                 
                 <div class='info'>
@@ -40,12 +49,10 @@
     </center>
 </div>
 
-<div>
-<center> <img id='home-image' src="{% static 'images/home1.jpg'%}" ></center>
-</div>
+
 <br>
 
-<center><h1>Around the World!</h1></center>
+<center><h1 style="font-family: 'Oswald';">Around the World!</h1></center>
 
 <div class="continent_buttons">
     
@@ -79,19 +86,17 @@
 
 <div class="w3-container w3-padding-32" id="contact">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
-    <p>Lets get in touch and talk about your next project.</p>
+    <p>Lets get in touch and talk about your next vacation.</p>
     <form action="/action_page.php" target="_blank">
-      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
-      <button class="w3-button w3-black w3-section" type="submit">
-        <i class="fa fa-paper-plane"></i> SEND MESSAGE
-      </button>
+        <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+        <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
+        <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
+        <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
+        <button class="w3-button w3-black w3-section" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
     </form>
-  </div>
-
+</div>
 
 
 {% endblock %}
-

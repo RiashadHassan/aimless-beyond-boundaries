@@ -1,0 +1,9 @@
+{%extends 'main.html'%}
+{%block content%}
+<div class='container'>
+<h5>Are you sure you want to remove {{list_item.list_item.name}} from your bucket_list?</h5>
+<form method= "POST" action="">
+    {% csrf_token %}
+    <button class='btn btn-outline-danger' type='submit'>Remove</button>
+</div>
+{%endblock%}
