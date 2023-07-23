@@ -19,14 +19,14 @@
         {% for location in locations %}
         <div>
             <a href="{% url 'location' location.id %}">
-                <button id="cheapest-locations" style="background-image: url({{location.location_display_image.url}});"></button> 
+                <button id="cheapest_locations" style="background-image: url({{location.location_display_image.url}});"></button> 
                 <br>
-                <span>
+                
                     {{location.name}} <a href="{% url 'country-locations' location.country.id %}">
                         <img src="{% static 'images/location.png' %}" width="12" height="16">
                         <small>{{location.country}}</small>
                     </a>
-                </span>
+                
                 
                 
                 <div class='info'>
