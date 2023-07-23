@@ -18,6 +18,7 @@ urlpatterns = [
     path('bucket-list/<str:pk>', views.bucketList, name= 'bucket-list'),
     
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('delete/<str:pk>', views.delete, name='delete'),
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

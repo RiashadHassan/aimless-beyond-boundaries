@@ -1,3 +1,45 @@
+.hero{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+}
+.hero-image {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/hero.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+.hero-text{
+    color: white;
+    margin-top: 25px;
+    margin-right: 25px;
+    
+   
+}
+.hero-text h5{
+    font-family: 'Calibri';
+    width: 100px;
+    height: 50px;
+    transition: width 2.5s;
+    font-weight: bold;
+    
+}
+.hero-text a{
+    color: white;
+}
+.hero-text h5:hover{
+    
+    width: 300px;
+    height: 75px;
+    font-size: 150%;
+    
+}
+
 #cheapest-locations{
     background-size: cover ;
     background-repeat: no-repeat;
@@ -19,17 +61,30 @@
     
 }
 
-#home-image{
-   object-fit: contain;
-   max-width: 1500px;
-    
+.home-page-image{
+    margin: 20px;
+    height: 80vh;
+
+}
+#home-page-image-1 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/home-image.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
 }
 
 .continent_buttons {
     display: flex;
-    justify-content: center;
+    margin: 20px;
+    justify-content:center;
     align-items: center;
     flex-wrap: wrap;
+    
+    margin: 0;
 }
 
 
@@ -41,12 +96,13 @@
 }
 
 #home_continents {
-    background-color: aqua;
+    
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 320px;
+    
     margin: 20px;
     margin-bottom: 0px;
     
@@ -69,6 +125,7 @@
     justify-content: flex-end;
     align-items: center;
     border-color: brown;
+    
 }
 
 
@@ -92,4 +149,12 @@ span {
 }
 a:link {
     text-decoration: none;
+    
     }
+a:target-text{
+    color: white;
+}
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

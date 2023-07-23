@@ -125,7 +125,7 @@ def dashboard(request):
         if request.method == 'POST':
             
             if 'add_location' in request.POST:
-                form= LocationForm(request.POST)
+                form= LocationForm(request.POST, request.FILES)
                 if form.is_valid():
                     form.save()
                 
@@ -134,3 +134,11 @@ def dashboard(request):
         
     context={'form':form}
     return render(request, 'base/dashboard.html', context)
+
+def delete(request, pk):
+    list_item =BucketList.objects.get(id=pk)
+    if request.method=="POST":
+        list_item.delete()
+             
+    context={'list_item':list_item}
+    return render (request, 'base/delete_page.html',context)

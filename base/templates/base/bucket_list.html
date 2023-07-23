@@ -7,7 +7,7 @@
 {% for item in bucket_list%}
    <p><button><a href={%url 'location' item.list_item.id %}>{{item.list_item}}</a></button> </p>
    <small>{{item.added_date}} </small>
-   <strong><a href=''>Remove from bucket list</a></strong>
+   <strong><a href={%url 'delete' item.id  %}>Remove from bucket list</a></strong>
 {%endfor%}
 
 
