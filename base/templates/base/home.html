@@ -15,7 +15,7 @@
 
 <div class='hero'>
     <div class='hero-image'>
-        <div class="hero-text">
+        <div class="hero-text ">
             <h5 style="font-family: 'Cornerstone','Oswald';">Your Next Destination</h5>
         </div>
     </div>        
@@ -31,9 +31,9 @@
                 <button id="cheapest-locations" style="background-image: url({{location.location_display_image.url}});"></button> 
                 <br>
                 <span>
-                    {{location.name}} <a href="{% url 'country-locations' location.country.id %}">
+                    <div id='location-name'>{{location.name}}</div> <a href="{% url 'country-locations' location.country.id %}">
                         <img src="{% static 'images/location.png' %}" width="12" height="16">
-                        <small>{{location.country}}</small>
+                        <small style='color:blue;'>{{location.country}}</small>
                     </a>
                 </span>
                 
@@ -49,6 +49,14 @@
     </center>
 </div>
 
+<div class='around-the-world'>
+    <div class='around-the-world-text'>
+         <h1 style='font-weight:bold; font-size:200%;'>To <span>Every</span> Continent</h1>
+         <p>Around the <span>World!</span></p>
+    </div> 
+ 
+ </div>  
+
 <div class='home-page-image'>
     <div id='home-page-image-1'>
         
@@ -60,7 +68,13 @@
 
 <br>
 
-<center><h1 style="font-family: 'Oswald';">Around the World!</h1></center>
+<div class='around-the-world'>
+   <div class='around-the-world-text'>
+        <h1 style='font-weight:bold; font-size:200%;'>To <span>Every</span> Continent</h1>
+        <p>Around the <span>World!</span></p>
+   </div> 
+
+</div>    
 
 <div class="continent_buttons">
     
@@ -92,19 +106,68 @@
     {% endfor %}
 </div>
 
-<div class="w3-container w3-padding-32" id="contact">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
-    <p>Lets get in touch and talk about your next vacation.</p>
-    <form action="/action_page.php" target="_blank">
-        <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-        <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
-        <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
-        <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
-        <button class="w3-button w3-black w3-section" type="submit">
-            <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-    </form>
+<div class='why-choose-us-section'>
+    <div class='header-text'>
+        <h1 style='font-weight:bold; font-size:200%;'>Plan your trip now</h1>
+        <p > Quick & easy package systems</p>
+    </div>    
+    <br>
+    <div class='header-info'>
+        <div>
+            <img src="{% static 'images/home package icon.png' %}" width='100px' height='100px'>
+            <h2> Select Package</h2>
+            <p>We offer a wide range of packages for all your travelling needs.</p>
+        </div>
+            
+        <div>
+            <img src="{% static 'images/customer-service_2869965.png' %}" width='100px' height='100px'>
+            <h2> Contact Operator</h2>
+            <p>We offer a wide range of packages for all your travelling needs.</p>
+        </div>
+
+        <div>
+            <img src="{% static 'images/global-distribution_2869985.png' %}" width='100px' height='100px'>
+            <h2> Let's Fly</h2>
+            <p>We offer a wide range of packages for all your travelling needs.</p>
+    </div>    
 </div>
+
+<div class='why-choose-us-section'>
+    <div class='header-text'>
+        <h1 style='font-weight:bold; font-size:200%;'>Reviewed by Thousands</h1>
+        <p > Client's Testimonials</p>
+        <h5 style="word-wrap: break-word; margin-right:50px; margin-left:50px; color:#5A5A5A">
+            Discover the postive impact we've made on our clients by reading through their testimonials.
+            Out clients have experiennced our service and results, and they're eager to share their 
+            positive experiences with everyone. </h5>
+    </div>    
+    <br>
+    <div class='header-info'>
+        <div>
+            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;'src="{% static 'images/review.png'%}" width='375px' height='250px'>
+
+        </div>
+            
+        <div>
+            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;'src="{% static 'images/review.png' %}" width='375px' height='250px'>
+            
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {% endblock %}

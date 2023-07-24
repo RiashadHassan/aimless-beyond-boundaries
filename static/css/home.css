@@ -1,7 +1,7 @@
 .hero{
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 80vh;
 
 }
 .hero-image {
@@ -52,8 +52,7 @@
     border-radius: 10px; 
 }
 .diy_container{
-    margin-left: 30px;
-    margin-right: 30px;
+   margin: 50px;
 }
 #best-deals{
     margin-top: 20px;
@@ -62,8 +61,8 @@
 }
 
 .home-page-image{
-    margin: 20px;
-    height: 80vh;
+    margin: 100px;
+    height: 90vh;
 
 }
 #home-page-image-1 {
@@ -75,6 +74,35 @@
     display: flex;
     justify-content: right;
     align-items: right;
+    
+}
+
+.around-the-world{
+    margin: 200px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    
+    text-align: center;
+    
+    
+}
+.around-the-world-text{
+    padding: 20px;
+  
+}
+.around-the-world-text span{
+    color: deeppink;
+    display: inline-block;
+    border-bottom:3.5px solid transparent; /* Initially, no underline */
+    transition: border-bottom 1.5s ease; /* Add a smooth transition */
+
+}
+.around-the-world-text span:hover {
+    border-bottom: 3.5px solid deeppink; /* Underline on hover */
+}
+.around-the-world-text p{
+    font-weight: 900;
+    font-size: 270%;
 }
 
 .continent_buttons {
@@ -110,6 +138,10 @@
     border-radius: 15px;
     align-items: center;
     border-color: brown;
+}
+
+#location-name:hover{
+    color: deeppink;
 }
 
 #continent_locations {
@@ -154,7 +186,37 @@ a:link {
 a:target-text{
     color: white;
 }
-.footer{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+
+.why-choose-us-section{
+    margin: 20px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.header-text{
+    text-align: center;
+    
+       
+}
+.header-text p{
+    font-weight: 900;
+    font-size: 270%;
+}
+.header-info{
+    margin: 30px;
+    display: flex;
+    gap: 150px;
+    justify-content: space-between;
+    text-align: center;
+}
+.header-info h2{
+    text-align: center;
+    font-weight:bold; 
+    font-size:200%;
+}
+.header-info  p{
+    word-wrap: break-word; /* Prevent paragraph text from spreading out */
+    max-width: 300px; 
 }
