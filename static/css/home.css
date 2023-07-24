@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 .hero{
     margin: 0;
     padding: 0;
