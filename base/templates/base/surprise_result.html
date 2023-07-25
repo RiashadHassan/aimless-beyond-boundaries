@@ -7,10 +7,12 @@
 <div class="location_button">
     <div>
         <a href="{% url 'location' surprise_location_result.id %}">
-            <button id="continent_locations" style="background-image: url({{surprise_location_result.location_display_image.url}});"></button> <br><span>{{surprise_location_result.name}} -<a href ={%url 'country-locations' surprise_location_result.country.id%} <small>{{surprise_location_result.country}}</small></span></a>
+            <button id="continent_locations" style="background-image: url({{surprise_location_result.location_display_image.url}});"></button> <br>
+            <span>{{surprise_location_result.name}} <br>
+                <img src="{% static 'images/location.png' %}" width="12" height="16">    <a href ={%url 'country-locations' surprise_location_result.country.id%}> <small>{{surprise_location_result.country}}</small></span></a>
         </a>
 
     </div>
 
 </div>
-{% endblock %}
+{% endblock content %}

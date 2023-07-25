@@ -1,48 +1,20 @@
-html{
-    scroll-behavior: smooth;
-}
-.hero{
-    margin: 0;
-    padding: 0;
-    height: 80vh;
-
-}
-.hero-image {
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/hero.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+.top-deals{
     display: flex;
-    justify-content: right;
-    align-items: right;
+    justify-content:space-between;
 }
-.hero-text{
+.surprise-button {
+    margin-right: 20px;
+    margin-bottom: 10px;
     color: white;
-    margin-top: 25px;
-    margin-right: 25px;
-    
-   
-}
-.hero-text h5{
-    font-family: 'Calibri';
-    width: 100px;
-    height: 50px;
-    transition: width 2.5s;
-    font-weight: bold;
-    
-}
-.hero-text a{
-    color: white;
-}
-.hero-text h5:hover{
-    
-    width: 300px;
-    height: 75px;
-    font-size: 150%;
-    
-}
-
+    background-color: deeppink;
+    background-image: none;
+    border-color: deeppink;
+  }
+  .surprise-button:hover {
+    color: #fff;
+    background-color: deeppink;
+    border-color: deeppink;
+  }
 #cheapest-locations{
     background-size: cover ;
     background-repeat: no-repeat;
@@ -57,26 +29,14 @@ html{
 .diy_container{
    margin: 50px;
 }
-#best-deals{
+.diy_container h1{
+    font-weight:bold; 
+    font-size:200%;
     margin-top: 20px;
     margin-left: 30px;
-    
 }
-
-.home-page-image{
-    margin: 100px;
-    height: 90vh;
-
-}
-#home-page-image-1 {
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/home-image.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    display: flex;
-    justify-content: right;
-    align-items: right;
+.deep-pink{
+    color: deeppink;
     
 }
 
@@ -93,14 +53,14 @@ html{
     padding: 20px;
   
 }
-.around-the-world-text span{
+.around-the-world-text span, .diy_container span{
     color: deeppink;
     display: inline-block;
     border-bottom:3.5px solid transparent; /* Initially, no underline */
     transition: border-bottom 1.5s ease; /* Add a smooth transition */
 
 }
-.around-the-world-text span:hover {
+.around-the-world-text span:hover{
     border-bottom: 3.5px solid deeppink; /* Underline on hover */
 }
 .around-the-world-text p{
@@ -164,7 +124,7 @@ html{
 }
 
 
-span {
+.continent-country-info span {
     display: flex;
     justify-content: center;
     color: black;
@@ -178,7 +138,7 @@ span {
     align-items: center;
     margin-top: 20px;
 }
-.info{
+.continent-country-info{
     margin-top: 10px;
     color:	#5A5A5A;
 }
@@ -190,17 +150,22 @@ a:target-text{
     color: white;
 }
 
-.why-choose-us-section{
-    margin: 20px;
-    margin-top: 100px;
+.why-choose-us-section-1, .why-choose-us-section-2, .why-choose-us-section-3{
+    margin: 20px; 
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
+.why-choose-us-section-1{
+    margin-top: 80px;
+}
+.why-choose-us-section-2, .why-choose-us-section-3{
+    margin-top: 100px;
+}
+
 .header-text{
-    text-align: center;
-    
+    text-align: center; 
        
 }
 .header-text p{
