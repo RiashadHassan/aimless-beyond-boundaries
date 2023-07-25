@@ -13,30 +13,27 @@
 <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/my.js' %}"></script>
 
-<div class='hero'>
-    <div class='hero-image'>
-        <div class="hero-text ">
-            <h5 style="font-family: 'Cornerstone','Oswald';">Your Next Destination</h5>
-            <a href='#top-button'> GG</a>
-        </div>
-    </div>        
-</div>    
-
-
- <div class="diy_container">
-    <h1 id="best-deals"> Best Deals </h1>
+<div class="diy_container">
+    
+    <div class='top-deals'>
+        <h1>Our <span>Best </span> Deals</h1>
+        <a href="{% url 'surprise' %}"><h1><div class='btn surprise-button'>Surprise-Me!</div></h1></a>
+    </div>    
+    
    <center> <div class="d-flex cheapest-location-slider " >
         {% for location in locations %}
         <div>
             <a href="{% url 'location' location.id %}">
                 <button id="cheapest-locations" style="background-image: url({{location.location_display_image.url}});"></button> 
                 <br>
-                <span>
-                    <div id='location-name'>{{location.name}}</div> <a href="{% url 'country-locations' location.country.id %}">
+                
+                    <div id='location-name'>{{location.name}}</div>
+                    
+                     <a href="{% url 'country-locations' location.country.id %}">  
                         <img src="{% static 'images/location.png' %}" width="12" height="16">
                         <small style='color:blue;'>{{location.country}}</small>
                     </a>
-                </span>
+                
                 
                 
                 <div class='info'>
@@ -52,23 +49,30 @@
 
 <div class='around-the-world'>
     <div class='around-the-world-text'>
-         <h1 style='font-weight:bold; font-size:200%;'>To <span>Every</span> Continent</h1>
-         <p>Around the <span>World!</span></p>
+         <h1 style='font-weight:bold; font-size:200%;'>Every <span>Luxury</span> You Need</h1>
+         <p>We offer it <span>ALL!</span></p>
     </div> 
  
  </div>  
 
-<div class='home-page-image'>
-    <div id='home-page-image-1'>
+
+<div class='why-choose-us-section-1'>
+    <div class='header-text'>
         
-    </div>
-
-
+    </div>    
+    <br>
+    <div class='header-info' style="gap:50px;">
+        <div>
+            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'src="{% static 'images/review.png'%}" width='375px' height='250px'>
+        </div>          
+        <div>
+            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'src="{% static 'images/review.png' %}" width='375px' height='250px'>
+        </div>
+        <div>
+            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'src="{% static 'images/review.png' %}" width='375px' height='250px'>
+        </div>
 </div>
-
-
-<br>
-
+</div>
 <div class='around-the-world'>
    <div class='around-the-world-text'>
         <h1 style='font-weight:bold; font-size:200%;'>To <span>Every</span> Continent</h1>
@@ -80,7 +84,7 @@
 <div class="continent_buttons" id='top-button'>
     
     {% for continent in continents %}
-    <div>
+    <div style='margin:20px;'>
         <a href="{% url 'continent-locations' continent.id %}">
             {% if continent.name == 'ASIA' %}
                 <button id="home_continents" style="background-image: url('/static/images/button/asia.jpg');"></button>
@@ -98,7 +102,7 @@
                 <button id="home_continents" style="background-image: url('/static/images/button/antarctica.jpg');"></button>
             
             {% endif %}
-            <div class='info'>
+            <div class='continent-country-info'>
                 <center><img loading="lazy" src={%static 'images/package.svg'%} alt="" class="icon mr-2"><small> {{ continent.num_locations }} packages available</small></center>
                 <span>{{ continent.name }}</span>      
             </div>
@@ -107,7 +111,7 @@
     {% endfor %}
 </div>
 
-<div class='why-choose-us-section'>
+<div class='why-choose-us-section-2'>
     <div class='header-text'>
         <h1 style='font-weight:bold; font-size:200%;'>Plan your trip now</h1>
         <p > Quick & easy package systems</p>
@@ -115,25 +119,26 @@
     <br>
     <div class='header-info'>
         <div>
-            <img src="{% static 'images/home package icon.png' %}" width='100px' height='100px'>
+            <img src="{% static 'images/worldwide-location-512.png' %}" width='100px' height='100px'>
             <h2> Select Package</h2>
-            <p>We offer a wide range of packages for all your travelling needs.</p>
+            <p style="color:#706f7b;">We offer a wide range of packages for all your travelling needs.</p>
         </div>
             
         <div>
-            <img src="{% static 'images/customer-service_2869965.png' %}" width='100px' height='100px'>
+            <img src="{% static 'images/phone-10-512.png' %}" width='100px' height='100px'>
             <h2> Contact Operator</h2>
-            <p>We offer a wide range of packages for all your travelling needs.</p>
+            <p style="color:#706f7b;">We offer a wide range of packages for all your travelling needs.</p>
         </div>
 
         <div>
-            <img src="{% static 'images/global-distribution_2869985.png' %}" width='100px' height='100px'>
+            <img src="{% static 'images/airplane-11-512.png' %}" width='100px' height='100px'>
             <h2> Let's Fly</h2>
-            <p>We offer a wide range of packages for all your travelling needs.</p>
+            <p style="color:#706f7b;">We offer a wide range of packages for all your travelling needs.</p>
     </div>    
 </div>
+</div>
 
-<div class='why-choose-us-section'>
+<div class='why-choose-us-section-3'>
     <div class='header-text'>
         <h1 style='font-weight:bold; font-size:200%;'>Reviewed by Thousands</h1>
         <p > Client's Testimonials</p>
@@ -145,14 +150,15 @@
     <br>
     <div class='header-info'>
         <div>
-            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;'src="{% static 'images/review.png'%}" width='375px' height='250px'>
+            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'src="{% static 'images/review.png'%}" width='375px' height='250px'>
 
         </div>
             
         <div>
-            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;'src="{% static 'images/review.png' %}" width='375px' height='250px'>
+            <img style='box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;'src="{% static 'images/review.png' %}" width='375px' height='250px'>
             
         </div>
 </div>
+</div>
 
-{% endblock %}
+{% endblock content%}

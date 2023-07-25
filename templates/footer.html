@@ -1,0 +1,161 @@
+<style>
+  footer {
+      margin: 0;
+      margin-top: 150px;
+      padding-bottom: 80px;
+  }
+
+  .above-footer{
+    height: 30vh;
+    background-color:#2d2d2d ;
+    opacity: 1;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content:space-evenly;
+    
+    
+  }
+  .above-footer-text{
+    display: flex;
+    flex-direction: column; /* Display elements in a column (default behavior) */
+    align-items: center;
+    
+    margin-top: 50px;
+    color: white;
+    opacity: 1;
+  }
+
+  .footer-content {
+      grid-gap: 10rem;
+      color: #010103;
+      display: grid;
+      gap: 8rem;
+      grid-template-columns: 27fr 21fr 21fr 21fr;
+      justify-content: center;
+      text-align: left;
+  }
+.contact-info{
+  
+  transition: color .4s;
+}
+.contact-info:hover{
+  cursor: pointer;
+  color: deeppink;
+  
+}
+  .footer-content-1, .footer-content-2, .footer-content-3, .footer-content-4 {
+      list-style: none;
+  }
+
+  .footer-content span {
+      font-size: 170%;
+      font-weight: bold;
+  }
+  .footer-content-4 input{
+    background-color: #ececec;
+    border-color: transparent;
+    padding:10px 50px ;
+  }
+  .submit-email {
+    background-color: deeppink;
+    border: 2px solid deeppink;
+    border-radius: .3rem;
+    box-shadow: 0 10px 15px 0 rgba(255,83,48,.25);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.6rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+    width: 100%;
+   
+}
+</style>
+
+<footer>
+  <div class='above-footer'>
+    <div class="above-footer-text">
+        <h1>Book a trip by getting in touch with us</h1>
+        <h2 ><img src="/static/images/phone-62-16.png">+880-1827-703876</h2>
+        
+
+    </div>
+
+  </div>
+  <div class="footer-container container-fluid">
+      <div class="footer-content">
+          <ul class="footer-content-1">
+              <li>
+                  <span>
+                      <p>AIMLESS</p>
+                  </span>
+              </li>
+              <li>
+                  <p style="color:#706f7b;">We offer a wide range of packages for all your travelling needs. You pick a spot, and we'll do the rest.</p>
+              </li>
+              
+              <li>
+                  <p class='contact-info'><img src="/static/images/phone-62-16.png">+880-18277-03-876</p>
+              </li>
+              <li>
+                  <p class='contact-info'> <img src="/static/images/new-post-16.png"> aimless@gmail.com</p>
+              </li>
+          </ul>
+
+          <ul class="footer-content-2">
+              <li>
+                  <span>
+                      <p>COMPANY</p>
+                  </span>
+              </li>
+              <li>
+                <p class='contact-info'>Gulshan</p>
+              </li>
+              <li>
+                <p class='contact-info'>Careers</p>
+              </li>
+              <li>
+                <p class='contact-info'>Blog</p>
+              </li>
+              <li>
+                <p class='contact-info' >Policy</p>
+              </li>
+              <li>
+                <p class='contact-info' >How we work</p>
+              </li>
+          </ul>
+
+          <ul class="footer-content-3">
+              <li>
+                  <span>
+                      <p> Hours</p>
+                  </span>
+              </li>
+              <li>
+                <p>24/7</p>
+              </li>
+              <li>
+                <p>365 Days</p>
+              </li>
+          </ul>
+
+          <ul class="footer-content-4">
+              <li>
+                  <span>
+                      <p>Subscription</p>
+                  </span>
+              </li>
+              <li>
+                <p>Subscribe to our news-letter for latest updates.</p>
+              </li>
+              <li>
+                <input type="emain" placeholder="Enter Email Address">
+              </li>
+              <li>
+                <button class="submit-email">Submit</button>
+              </li>
+          </ul>
+      </div>
+  </div>
+</footer>
