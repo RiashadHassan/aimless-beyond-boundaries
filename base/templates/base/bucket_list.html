@@ -1,14 +1,60 @@
 {% extends 'main.html' %}
 
-{%block content%}
+{% block content %}
+<style>
+    .bucket-list-container {
+        margin: 50px;
+    }
+    .bucket-list-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .bucket-list-item a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    .bucket-list-item a:hover {
+        color: #dc3545;
+    }
+    .bucket-list-item small {
+        color: #999;
+        margin-right: 10px;
+    }
+    .bucket-list-item strong {
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .bucket-list-item button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .bucket-list-item button:hover {
+        transform: scale(1.2);
+    }
+</style>
 
-<h3>User: {{user.username}}</h3>
+<div class="bucket-list-container">
+    <h3>User: {{ user.username }}</h3>
+    {% for item in bucket_list %}
+    <div class="bucket-list-item">
+        <a href="{% url 'location' item.list_item.id %}">{{ item.list_item }} - <small>{{item.list_item.country}}</small></a>
+        <small>{{ item.added_date }}</small>
+        <strong>
+            <a href="{% url 'delete' item.id %}">Remove</a>
+        </strong>
+    </div>
+    {% endfor %}
+</div>
 
-{% for item in bucket_list%}
-   <p><button><a href={%url 'location' item.list_item.id %}>{{item.list_item}}</a></button> </p>
-   <small>{{item.added_date}} </small>
-   <strong><a href={%url 'delete' item.id  %}>Remove from bucket list</a></strong>
-{%endfor%}
-
-
-{% endblock content%}
+{% endblock content %}

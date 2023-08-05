@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import User, Location
+from .models import *
 
 class UserForm(ModelForm):
     
@@ -15,5 +15,10 @@ class UserForm(ModelForm):
 class LocationForm(ModelForm):
     class Meta:
         model= Location
+        fields = '__all__'
+        
+class CountryForm(ModelForm):
+    class Meta:
+        model= Country
         fields = '__all__'
         

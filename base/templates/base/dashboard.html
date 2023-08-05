@@ -1,13 +1,78 @@
 {% extends 'main.html' %}
 
-{%block content%}
-
+{% block content %}
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+    .form-wrapper {
+        margin: 30px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        width: 400px;
+    }
+    .form-wrapper h2 {
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .form-wrapper label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    .form-wrapper input[type="text"],
+    .form-wrapper select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .form-wrapper textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+    }
+    .form-wrapper input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: deeppink;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .form-wrapper input[type="submit"]:hover {
+        background-color: #ff9800;
+    }
+</style>
 <div class='container'>
-<form method='POST' action='' enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input class="btn btn-outline-warning" type='submit', value='Add Location' name='add_location'/>
-</form>
-</div>
+    <div class='form-wrapper country-form'>
+        <h2>Add Country</h2>
+        <form method='POST' action='' >
+            {% csrf_token %}
+            {{country_form.as_p}}
+            <input class="btn btn-outline-warning" type='submit' value='Add Country' name='country_form_submit'/>
+        </form>
+    </div>
 
-{%endblock content%}
+    <div class='form-wrapper location-form'> 
+        <h2>Add Location</h2>
+        <form method='POST' action='' enctype="multipart/form-data">
+            {% csrf_token %}
+            {{location_form.as_p}}
+            <input class="btn btn-outline-warning" type='submit' value='Add Location' name='location_form_submit' />
+        </form>
+    </div>
+</div>
+{% endblock content %}

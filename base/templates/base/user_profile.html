@@ -1,43 +1,136 @@
-{%extends 'main.html'%}
+{% extends 'main.html' %}
 
-{%block content%}
-
-<div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
+{% block content %}
+<style>
+    .profile-container {
+        margin: 50px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 30px;
+    }
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .profile-name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .profile-email {
+        color: #888;
+        margin-bottom: 20px;
+    }
+    .profile-settings {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .profile-form label {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    .profile-form input[type="text"],
+    .profile-form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .profile-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+    }
+    .profile-button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #dc3545;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .profile-button:hover {
+        background-color: #c82333;
+    }
+    .user-credentials {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .labels {
+        font-size: 14px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #6c757d;
+    }
+    .experience {
+        margin-bottom: 20px;
+    }
+</style>
+<div class="container">
+    <div class="profile-container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="profile-image rounded-circle mt-5" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="profile-name">{{user.username}}</span>
+                    <span class="profile-email">{{user.email}}</span>
                 </div>
-               
-                <form method= "POST" action="">
-                    {% csrf_token %}
-                    {{form.as_p}}              
-                <div class="mt-5 text-center"><button class="btn btn-outline-danger profile-button" type="submit">Save Profile</button></div>
-                </form>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="p-3 py-5">
-                {%if user.is_staff %}
-                <div class="d-flex justify-content-between align-items-center experience"><labe>User Credntials:</labe><button class="btn btn-outline-secondary " class="labels">Staff</button></div><br>
-                
-                {%else%}
-                <div class="d-flex justify-content-between align-items-center experience"><span>User Credntials:</span><button class="btn btn-outline-secondary " class="labels">Not Staff</button></div><br>
-                {%endif%}
-                <div class="d-flex justify-content-between align-items-center experience"><span>Date Joined: {{user.date_joined}}</span></div><br>
-                <div class="d-flex justify-content-between align-items-center experience"><span>Last Login: {{user.last_login}}</span></div><br>
-
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="profile-settings">Profile Settings</h4>
+                    </div>
+                    <form class="profile-form" method="POST" action="">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-outline-danger profile-button" type="submit">Save Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 py-5">
+                    {% if user.is_staff %}
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <label class="user-credentials">User Credentials:</label>
+                        <button class="labels">Staff</button>
+                    </div>
+                    <br>
+                    {% else %}
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <span class="user-credentials">User Credentials:</span>
+                        <button class="labels">Not Staff</button>
+                    </div>
+                    <br>
+                    {% endif %}
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <span class="user-credentials">Date Joined: {{ user.date_joined }}</span>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <span class="user-credentials">Last Login: {{ user.last_login }}</span>
+                    </div>
+                    <br>
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
-
-
-
-{%endblock content%}
+{% endblock content %}
