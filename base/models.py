@@ -11,14 +11,18 @@ class Continent(models.Model):
 class Country(models.Model):
     continent=models.ForeignKey(Continent, on_delete=models.CASCADE)
     name= models.CharField(max_length=30)
-    
+        
     def __str__(self):
         return self.name
+    
+    class Meta:
+        ordering=['name']    
+        
         
 class Location(models.Model):
     continent = models.ForeignKey(Continent, on_delete=models.CASCADE)
     country= models.ForeignKey(Country, on_delete=models.CASCADE)
-    name = models.TextField(max_length=100, unique=True)
+    name = models.CharField(max_length=80, unique=True)
     location_display_image=models.ImageField(upload_to='location_display_image/', null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=0, default=0, null= True, blank=True)
               

@@ -1,52 +1,189 @@
-
 {% extends 'main.html' %}
+{% load static%}
+{% block content %}
+<style>
+    .container {
+        margin: 50px;
+    }
 
-{%block content%}
-{%load static%}
-<link rel="stylesheet" type="text/css" href={%static 'css/images.css' %}>
+    .location-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .location-info h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .add-to-bucket-list-btn {
+        padding: 10px 20px;
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-to-bucket-list-btn:hover {
+        background-color: #ff4f4f;
+    }
+
+    .display_image img {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .location_images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .location-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .location-image:hover {
+        transform: scale(1.1);
+    }
+
+    hr {
+        margin: 30px 0;
+        border: none;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .location-package {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .package-card {
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        width: 30%;
+        margin-bottom: 20px;
+    }
+
+    .package-card h3 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .package-card p {
+        font-size: 16px;
+        color: #777;
+    }
+
+    .payment-gateway {
+        margin-top: 50px;
+    }
+
+    .payment-gateway h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .payment-options {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .payment-option {
+        padding: 10px 20px;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .payment-option:hover {
+        background-color: #f0f0f0;
+    }
+</style>
 <div class="container">
-</p>
-<div>
-    {{location.name}}</p>
-    
+    <div class="location-info">
+        <h2>{{ location.name }}</h2>
+        <form method='POST' action=''>
+            {% csrf_token %}
+            <input type='submit' value="Add to Bucket List" class="add-to-bucket-list-btn">
+        </form>
+    </div>
+
+    <div class='display_image'>
+        {% if location.location_display_image %} 
+            <img src='{{ location.location_display_image.url }}' width="800" height="500" alt="Location Display Image">
+        {% endif %}
+    </div>
+
+    <div class='location_images'>
+        {% for image in location_images %}
+        <a href="{{ image.image.url }}">
+            <img src="{{ image.image.url }}" class='location-image' alt="Location Image">
+        </a>
+        {% endfor %}
+    </div>
+    <hr>
+
+    <div class="location-package">
+        <div class="package-card">
+            <h3>Standard Package</h3>
+            <p>Includes sightseeing and accommodation.</p>
+            <button class="btn btn-outline-primary">Select Package</button>
+        </div>
+        <div class="package-card">
+            <h3>Premium Package</h3>
+            <p>Includes sightseeing, accommodation, and meals.</p>
+            <button class="btn btn-outline-primary">Select Package</button>
+        </div>
+        <div class="package-card">
+            <h3>Luxury Package</h3>
+            <p>Includes sightseeing, accommodation, meals, and luxury services.</p>
+            <button class="btn btn-outline-primary">Select Package</button>
+        </div>
+    </div>
+
+    <div class="payment-gateway">
+        <h3>Select Payment Option</h3>
+        <div class="payment-options">
+            <div class="payment-option">
+                <img src="{% static 'images/paypal.png' %}" alt="PayPal">
+            </div>
+            <div class="payment-option">
+                <img src="{% static 'images/visa.png' %}" alt="Visa">
+            </div>
+            <div class="payment-option">
+                <img src="{% static 'images/mastercard.png' %}" alt="Mastercard">
+            </div>
+            <div class="payment-option">
+                <img src="{% static 'images/amex.png' %}" alt="American Express">
+            </div>
+        </div>
+    </div>
 </div>
-<form method='POST' action=''>
-    {% csrf_token %}
-    <input type= 'submit' value="add to bucket list">
-</form>
-
-<br>
-
-
-
-<div class='display_image'>
-    {%if location.location_display_image %} 
-        <img src= '{{location.location_display_image.url}}'  width="800" height="500"><hr>
-    {%endif%}
-</div>
-
-<div class='location_images'>
-{% for image in location_images %}
-
-<a href="{{ image.image.url }}">
-    
-    <img src="{{ image.image.url }}" class='location-image' alt="Location Image">
-</a>
-{% endfor %}
-</div>
-<hr>
-
-{% for video in location_videos %}
-{{video.video.url}} <br>
-<video width="320" height="240" controls>
-    <source src={{video.video.url}} type="video/mp4">
-    
-    Your browser does not support the video tag.
-  </video>
-{% endfor %}
-
-</div>
-
-
-{%endblock content%}
-<button style="background-image: url({{image.image.url}});"></button>
+{% endblock content %}

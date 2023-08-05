@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q, Count
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserForm, LocationForm
+from .forms import *
 import random
 
 def home(request):
@@ -119,20 +119,25 @@ def bucketList(request,pk):
 
 def dashboard(request):
     if request.user.is_staff:
-        form = LocationForm()
-        
+        location_form = LocationForm()
+        country_form= CountryForm()
         
         if request.method == 'POST':
             
-            if 'add_location' in request.POST:
+            if 'location_form_submit' in request.POST:
                 form= LocationForm(request.POST, request.FILES)
+                if form.is_valid():
+                    form.save()
+            
+            if 'country_form_submit' in request.POST:
+                form= CountryForm(request.POST)
                 if form.is_valid():
                     form.save()
                 
     else:
         return redirect('home')
         
-    context={'form':form}
+    context={'country_form':country_form, 'location_form':location_form}
     return render(request, 'base/dashboard.html', context)
 
 def delete(request, pk):
