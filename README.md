@@ -1,4 +1,4 @@
-# aimless-beoynd-boundaries
+# JantaWiFi AI Engineer Internship Project
 ## Setup
 ### Cloning the repository
 
