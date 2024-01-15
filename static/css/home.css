@@ -22,8 +22,7 @@
     background-position: center;
     width: 265px;
     height: 320px;
-    margin: 0px;
-    
+    margin: 0px;    
     border: 0px;
     border-radius: 10px; 
 }
@@ -57,12 +56,12 @@
 .around-the-world-text span, .diy_container span{
     color: deeppink;
     display: inline-block;
-    border-bottom:3.5px solid transparent; /* Initially, no underline */
-    transition: border-bottom 1.5s ease; /* Add a smooth transition */
+    border-bottom:3.5px solid transparent; 
+    transition: border-bottom 1.5s ease; 
 
 }
 .around-the-world-text span:hover{
-    border-bottom: 3.5px solid deeppink; /* Underline on hover */
+    border-bottom: 3.5px solid deeppink; 
 }
 .around-the-world-text p{
     font-weight: 900;
