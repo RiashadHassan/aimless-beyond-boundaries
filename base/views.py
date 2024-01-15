@@ -1,20 +1,25 @@
-from django.shortcuts import render, redirect, HttpResponse
-from .models import Location, Continent, Country, BucketList, ImageModel, VideoModel
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.db.models import Q, Count
-from django.contrib.auth import authenticate, login, logout
-from .forms import *
 import random
 
-def home(request):
-    #continents = Continent.objects.all()
-    continents = Continent.objects.annotate(num_locations=Count('country__location')).all()
-    locations=Location.objects.all().order_by('price')
-    
-    context = {'continents': continents,'locations':locations}
-    return render(request, 'base/home.html', context)
+from django.views import View
+from django.db.models import Q, Count
+from django.shortcuts import render, redirect, HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 
+from .forms import *
+from .models import Location, Continent, Country, BucketList, ImageModel, VideoModel
+ 
+   
+class HomeView(View):
+    template_name = 'base/home.html'
+
+    def get(self, request, *args, **kwargs):
+        continents = Continent.objects.annotate(num_locations=Count('country__location')).all()
+        locations = Location.objects.all().order_by('price')
+        context = {'continents': continents, 'locations': locations}
+        return render(request, self.template_name, context)
+    
 def search(request):
     if request.GET.get('q') != None:
         q = request.GET.get('q')
@@ -146,4 +151,6 @@ def delete(request, pk):
         list_item.delete()
              
     context={'list_item':list_item}
-    return render (request, 'base/delete_page.html',context)
+    return render (request, 'base/delete_page.html',context)\
+        
+     
